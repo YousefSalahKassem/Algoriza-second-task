@@ -6,9 +6,13 @@
 # Features
 
 Add task
+
 Reminder for task by sending notification before specific time
+
 delete task by swipping left
+
 Calender
+
 Add to favourite
 
 
