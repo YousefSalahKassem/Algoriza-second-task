@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 import 'package:todoalgoriza/components/text_form_app.dart';
 import 'package:todoalgoriza/styles/dimensions.dart';
 import 'package:todoalgoriza/model/task_model.dart';
@@ -137,8 +138,11 @@ class BuildBody extends StatelessWidget {
                       color: green,
                       text: "Create a Task",
                       onPressed: () {
-                        if (start.text.compareTo(end.text) > 0 &&
-                            end.text.compareTo(start.text) < 0) {
+                        var format = DateFormat("HH:mm aa");
+                        var startTime = format.parse(start.text);
+                        var endTime = format.parse(end.text);
+
+                        if (endTime.isBefore(startTime)){
                           Fluttertoast.showToast(
                             msg: "end time should after start time",
                             toastLength: Toast.LENGTH_SHORT,
